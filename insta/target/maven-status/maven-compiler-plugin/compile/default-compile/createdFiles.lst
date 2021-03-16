@@ -1,0 +1,13 @@
+world\ucode\repos\RegistrationRepo.class
+world\ucode\domain\Registration.class
+world\ucode\Application.class
+world\ucode\domain\Mes.class
+world\ucode\repos\MesRepo.class
+world\ucode\RegistrationController.class
+world\ucode\config\MvcConfig.class
+world\ucode\ChatController.class
+world\ucode\GreetingController.class
+world\ucode\MesController.class
+world\ucode\service\RegistrationService.class
+world\ucode\config\WebSecurityConfig.class
+world\ucode\domain\Role.class
