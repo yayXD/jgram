@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/profile" method="post" enctype="multipart/form-data">
+    <input type="text" name="firstname" placeholder="Введите имя"/>
+    <input type="text" name="surname" placeholder="Введите фамилию"/>
+    <input type="date" name="birthDate" placeholder="Введите дату рождения">
+    <label><b>Выберите пол</b></label>
+    <div class="sex">
+        <input id="sex0" type="radio" value="мужской" name="sex">
+        <label for="sex0">мужской</label>
+        <input id="sex1" type="radio" value="женский" name="sex">
+        <label for="sex1">женский</label>
+        <input id="sex2" type="radio" value="не определился" name="sex">
+        <label for="sex2">не определился</label>
+        <input id="sex3" type="radio" value="боевой вертолет" name="sex">
+        <label for="sex3">боевой вертолет</label>
+        <input id="sex4" type="radio" value="другое" name="sex">
+        <label for="sex4">другое</label>
+    </div>
+    <input type="text" name="city" placeholder="Введите город проживания">
+    <input type="text" name="photoName" placeholder="Введите город проживания">
+
+<!--        private String photoName;-->
+    <input type="text" name="workPlace" placeholder="Введите место работы">
+    <input type="text" name="position" placeholder="Введите занимаемую должность">
+    <input type="text" name="bio" placeholder="Опишите себя несколькими строкам">
+    <label><b>Выберите фото для своего профиля</b></label>
+    <input type="file" name="file">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <button type="submit">Создать</button>
+</form>
+{{#profile}}
+    {{profile}}
+{{/profile}}
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Выйти"/>
+</form>
+<a href ="/profile">Создать профиль</a>
+<a href="/chat">Перейти в чат</a>
+{{#profile}}
+    <p>Имя {{firstname}}</p>
+    <p>Фамилия {{surname}}</p>
+    <p>Возраст {{birthDate}}</p>
+    <p>Пол {{sex}}</p>
+    <p>Город {{city}}</p>
+    <p>Место работы {{workPlace}}</p>
+    <p>Должность {{position}}</p>
+    <p>Кратко о себе {{bio}}</p>
+    <div>
+
+
+<!--        <#if message.filename??>-->
+        <img src="{{photoName}}">
+<!--    </#if>-->
+    </div>
+{{/profile}}
+</body>
+</html>
