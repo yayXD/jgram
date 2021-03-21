@@ -18,6 +18,23 @@
 {{#mes}}
     {{mes}}
 {{/mes}}
+{{#error}}
+    {{#error.usernameError}}
+        {{error.usernameError}}
+    {{/error.usernameError}}
+    <br/>
+    {{#error.passwordError}}
+        {{error.passwordError}}
+    {{/error.passwordError}}
+    <br/>
+    {{#error.password2Error}}
+        {{error.password2Error}}
+    {{/error.password2Error}}
+    <br/>
+    {{#error.emailError}}
+        {{error.emailError}}
+    {{/error.emailError}}
+{{/error}}
 <br/>
 <a href="/greeting">Вернуться</a>
 </body>

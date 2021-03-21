@@ -1,6 +1,9 @@
 package world.ucode.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "messages")
@@ -13,6 +16,8 @@ public class Mes {
     @JoinColumn(name = "user_id")
     private Registration sender;
     private String receiver;
+//    @NotBlank(message = "Заполните поле текст сообщения")
+//    @Length(max = 2048, message = "Слишком длинное сообщение, превышает 2Kb")
     private String mes;
     private String data;
 

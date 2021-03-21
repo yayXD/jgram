@@ -1,6 +1,8 @@
 package world.ucode.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "profile")
@@ -21,6 +23,12 @@ public class Profile {
     private String workPlace;
     private String position;
     private String bio;
+    @ManyToMany
+    @JoinTable(
+            name = "followed_streams",
+            joinColumns = @JoinColumn(name = "vier_id"),
+            inverseJoinColumns = @JoinColumn(name = "stream_id"))
+    private List<Tag> followedTag = new ArrayList<>();
 
     public Profile() {}
 
@@ -121,5 +129,9 @@ public class Profile {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public void followTag(Tag tag) {
+        followedTag.add(tag);
     }
 }

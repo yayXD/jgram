@@ -38,8 +38,6 @@ public class MainpageController {
             }
             Period period = Period.between(data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
                     birth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            //Long age = (data.getTime() - birth.getTime());
-            // age = age / 31536000;
             String age = String.valueOf(period.getYears());
             profile.setBirthDate(age);
         } else
@@ -51,16 +49,21 @@ public class MainpageController {
     @PostMapping("/mainpage")
     public String doit(@AuthenticationPrincipal Registration username, Model model) {
         Profile profile = profileRepo.findByUsername(username);
-        Date data = new Date();
-        Date birth = null;
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            birth = dateFormatter.parse(profile.getBirthDate());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Long age = (data.getTime() - birth.getTime()) / 31536000;
-        profile.setBirthDate(age.toString());
+        if(profile != null) {
+            Date data = new Date();
+            Date birth = null;
+            DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                birth = dateFormatter.parse(profile.getBirthDate());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Period period = Period.between(data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                    birth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            String age = String.valueOf(period.getYears());
+            profile.setBirthDate(age);
+        } else
+            model.addAttribute("profile", null);
         model.addAttribute("profile", profile);
         return "mainpage";
     }

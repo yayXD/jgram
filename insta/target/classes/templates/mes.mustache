@@ -17,9 +17,12 @@
         <br/>
         </select></p>
         <input type="text" name="mes" placeholder="Введите текст сообщения"/>
-<br/>
+        <br/>
 <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Отправить</button>
     </form>
+{{#error}}
+    {{error.mesError}}
+{{/error}}
 </body>
 </html>

@@ -5,6 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Set;
 
@@ -14,9 +16,15 @@ public class Registration implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Заполните поле имя пользователя")
     private String username;
+    @NotBlank(message = "Заполните поле пароля")
     private String password;
+    @NotBlank(message = "Заполните поле подтверждение пароля")
+    @Transient
     private String password2;
+    @NotBlank(message = "Заполните поле email")
+    @Email(message = "Email не корректен")
     private String email;
     private boolean active;
 
