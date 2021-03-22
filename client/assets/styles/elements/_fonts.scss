@@ -1,0 +1,37 @@
+// ==========================================================================
+// Base / Fonts
+// ==========================================================================
+
+@include font-face($font-thin, '/fonts/ProximaNovaT-Thin') {
+  font-style: normal;
+  font-weight: 100;
+}
+@include font-face($font-bold, '/fonts/ProximaNova-Bold') {
+  font-style: normal;
+  font-weight: bold;
+}
+
+// @include font-face(
+//     $font-foobar,
+//     "fonts/Foobar/Medium"
+// ) {
+//     font-style:  normal;
+//     font-weight: 500;
+// }
+
+// @include font-face(
+//     $font-foobar,
+//     "fonts/Foobar/Semibold"
+// ) {
+//     font-style:  normal;
+//     font-weight: 600;
+// }
+
+// @include font-face(
+//     $font-bazqux,
+//     "fonts/Bazqux/Regular",
+//     ("eot", "woff2", "woff", "ttf")
+// ) {
+//     font-style:  normal;
+//     font-weight: 400;
+// }
