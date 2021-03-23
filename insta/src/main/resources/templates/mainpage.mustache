@@ -9,6 +9,7 @@
     <input type="submit" value="Выйти"/>
 </form>
 <a href ="/profile">Создать профиль</a>
+<br/>
 <a href="/chat">Перейти в чат</a>
 {{#profile}}
     <p>Имя {{firstname}}</p>
@@ -20,11 +21,7 @@
     <p>Должность {{position}}</p>
     <p>Кратко о себе {{bio}}</p>
     <div>
-
-
-<!--        <#if message.filename??>-->
         <img src="{{photoName}}">
-<!--    </#if>-->
     </div>
 {{/profile}}
 </body>

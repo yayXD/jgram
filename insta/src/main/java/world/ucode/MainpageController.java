@@ -38,8 +38,11 @@ public class MainpageController {
             }
             Period period = Period.between(data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
                     birth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            String age = String.valueOf(period.getYears());
-            profile.setBirthDate(age);
+            int a = period.getYears();
+            if(a < 0)
+                a = a * (-1);
+            //String age = String.valueOf(period.getYears());
+            profile.setBirthDate(String.valueOf(a));
         } else
             model.addAttribute("profile", null);
         model.addAttribute("profile", profile);
@@ -60,8 +63,11 @@ public class MainpageController {
             }
             Period period = Period.between(data.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
                     birth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-            String age = String.valueOf(period.getYears());
-            profile.setBirthDate(age);
+            int a = period.getYears();
+            if(a < 0)
+                a = a * (-1);
+            //String age = String.valueOf(period.getYears());
+            profile.setBirthDate(String.valueOf(a));
         } else
             model.addAttribute("profile", null);
         model.addAttribute("profile", profile);

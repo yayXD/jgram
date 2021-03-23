@@ -1,6 +1,7 @@
 package world.ucode.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +15,26 @@ public class Profile {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Registration username;
+    @NotBlank(message = "Заполните поле имя")
     private String firstname;
+    @NotBlank(message = "Заполните поле фамилия")
     private String surname;
+    @NotBlank(message = "Заполните поле дата рождения")
     private String birthDate;
     private String sex;
+    @NotBlank(message = "Заполните поле город проживания")
     private String city;
     private String photoName;
+    @NotBlank(message = "Заполните поле место работы")
     private String workPlace;
+    @NotBlank(message = "Заполните поле занимаемая должность")
     private String position;
+    @NotBlank(message = "Заполните поле опишите себя")
     private String bio;
     @ManyToMany
-    @JoinTable(
-            name = "followed_streams",
-            joinColumns = @JoinColumn(name = "vier_id"),
-            inverseJoinColumns = @JoinColumn(name = "stream_id"))
+    @JoinTable(name = "followed_tags",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> followedTag = new ArrayList<>();
 
     public Profile() {}
