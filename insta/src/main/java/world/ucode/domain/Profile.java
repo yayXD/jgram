@@ -3,7 +3,9 @@ package world.ucode.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "profile")
@@ -37,6 +39,19 @@ public class Profile {
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> followedTag = new ArrayList<>();
 
+    @ManyToMany
+    @JoinTable(name = "user_likes",
+                joinColumns = {@JoinColumn(name =  "channel_id")},
+                inverseJoinColumns = {@JoinColumn(name = "liker_id")})
+    private Set<Registration> likers = new HashSet<>();
+//channel_id тот кого я лайкаю,
+// те кто тебя залайкал
+    @ManyToMany
+    @JoinTable(name = "user_likes",
+            joinColumns = {@JoinColumn(name = "liker_id" )},
+            inverseJoinColumns = {@JoinColumn(name = "channel_id")})
+    private Set<Registration> Ilike = new HashSet<>();
+//те кого я залайкала
     public Profile() {}
 
     public Profile(Registration username, String firstname, String surname, String birthDate,
@@ -140,5 +155,26 @@ public class Profile {
 
     public void followTag(Tag tag) {
         followedTag.add(tag);
+    }
+
+    public Set<Registration> getLikers() {
+        return likers;
+    }
+
+    public Set<Registration> getIlike() {
+        return Ilike;
+    }
+
+    public void setLikers(Registration registration) {
+        likers.add(registration);
+        //this.likers = likers;
+    }
+
+    public void setIlike(Registration registration) {
+        Ilike.add(registration);
+    }
+
+    public List<Tag> getFollowedTag() {
+        return followedTag;
     }
 }

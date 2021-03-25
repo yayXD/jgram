@@ -68,7 +68,6 @@ public class ProfileController {
                                             profile = new Profile(username, firstname, surname, birthDate, sex,
                                                     city, resultFilename, workPlace, position, bio);
                                             profileRepo.save(profile);
-                                            //for (Tag t : tag)
                                             for(int a = 0; a < tag.length; a++) {
                                                 Tag t = tagRepo.findByTagName(tag[a]);
                                                 t.addProfile(profile);

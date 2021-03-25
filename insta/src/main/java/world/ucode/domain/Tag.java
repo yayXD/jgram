@@ -35,4 +35,8 @@ public class Tag {
     public void addProfile(Profile profile) {
         followers.add(profile);
     }
+
+    public List<Profile> getFollowers() {
+        return followers;
+    }
 }
